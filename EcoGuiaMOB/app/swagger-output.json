@@ -1,0 +1,1172 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Ecoguia API",
+    "description": "Caros, trago aqui a descrição e documentação da API que construímos no nosso TCC de formação do Técnico de Dev. Sistemas.Nosso projeto foca no MOBILE sendo um app de gerenciamento pessoal sobre consumo sustentável baseado na 12º ODS com uma pitada de gameficação."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+   "/createQuest": {
+  "post": {
+    "tags": ["Admin"],  
+    "description": "Rota utilizada para criação de novas Quests usada pelo administrador",
+    "responses": {
+      "200": {
+        "description": "OK"
+      },
+      "400": {
+        "description": "Bad Request"
+      },
+      "422": {
+        "description": "Unprocessable Entity"
+      },
+      "500": {
+        "description": "Internal Server Error"
+      }
+    },
+    "requestBody": {
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "description_3": {
+                "type": "string",
+                "example": "any"
+              },
+              "XP_3": {
+                "type": "integer",
+                "example": 100
+              },
+              "description_2": {
+                "type": "string",
+                "example": "any"
+              },
+              "XP_2": {
+                "type": "integer",
+                "example": 50
+              },
+              "description_1": {
+                "type": "string",
+                "example": "any"
+              },
+              "XP_1": {
+                "type": "integer",
+                "example": 25
+              },
+              "blob_url": {
+                "type": "string",
+                "example": "http://example.com/image.jpg"
+              },
+              "blob_title": {
+                "type": "string",
+                "example": "Título da imagem"
+              },
+              "blob_description": {
+                "type": "string",
+                "example": "Descrição da imagem"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+},
+    "/createTips": {
+      "post": {
+        "tags": ["Admin"],  
+        "description": "Rota utilizada para criação de novas dicas diárias usada pelo administrador",
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tip_description": {
+                    "type":"string",
+                    "example": "Não jogue lixo na rua"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateQuest": {
+      "put": {
+        "tags":["Admin"],
+        "description": "Rota utilizada para a atualização de uma quest no banco de dados usada pelo administrador",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "IDquest": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "description_3": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "XP_3": {
+                    "type": "integer",
+                    "example": "any"
+                  },
+                  "description_2": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "XP_2": {
+                    "type": "integer",
+                    "example": "any"
+                  },
+                  "description_1": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "XP_1": {
+                    "type": "integer",
+                    "example": "any"
+                  },
+                  "blob_url": {
+                    "type": "string",
+                    "example": "Link de uma imagem"
+                  },
+                  "blob_title": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "blob_description": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateArticle": {
+      "put": {
+        "tags":["Admin"],
+        "description": "Rota utilizada para a atualização de um artigo no banco de dados usada pelo administrador",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "image": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "title": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "category": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "reference": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateAvatar": {
+      "put": {
+        "tags":["Admin"],
+        "description": "Rota utilizada para a atualização de um avatar no banco de dados usada pelo administrador",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "avatarId": {
+                    "type": "integer",
+                    "example": "any"
+                  },
+                  "newAvatar": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/updateTip": {
+      "put": {
+        "tags":["Admin"],
+        "description": "Rota utilizada para a atualização de uma dica no banco de dados usada pelo administrador",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "any"
+                  },
+                  "description_tip": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deleteQuest": {
+      "delete": {
+         "tags":["Admin"],
+        "description": "Rota utilizada para a exclusão de uma quest usada pelo administrador",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/deleteArticle": {
+      "delete": {
+        "tags":["Admin"],
+        "description": "Rota utilizada para a exclusão de um artigo usada pelo administrador",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/deleteTip": {
+      "delete": {
+        "tags":["Admin"], 
+        "description": "Rota utilizada para a exclusão de uma dica diária usada pelo administrador",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pickupTime": {
+      "post": {
+        "tags":["System"],
+        "description": "Rota utilizada pelo sistema para a extração de dados sobre os horários de coleta.",
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "cep": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tip": {
+      "get": {
+      "tags":["System"],  
+        "description": "Rota utilizada pelo sistema pegar uma dica diária no banco de dados",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/articles": {
+      "get": {
+        "tags":["System"],
+        "description": "Rota utilizada pelo sistema para pegar 3 artigos no banco de dados",
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500":{
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/selectArticle": {
+      "get": {
+        "tags":["System"],
+        "description": "Rota utilizada pelo sistema para pegar 3 artigos no banco de dados",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "integer",
+                    "example": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rank": {
+      "get": {
+        "tags":["System"],
+        "description": "Rota utilizada pelo sistema para pegar dados sobre o rank dos usuários de acordo com a quantidade de XP",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/avatars": {
+      "get": {
+        "tags":["System"],
+        "description": "Rota utilizada pelo sistema para pegar todos os avatares",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404":{
+            "description": "Not Found"
+          },
+          "500":{
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/register": {
+      "post": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para a validação dos dados para o cadastro incluindo a confirmação do email pelo envio de um token",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "420": {
+            "description": ""
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "423": {
+            "description": "Locked"
+          },
+          "424": {
+            "description": "Failed Dependency"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type":"string",
+                    "example": "any"
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "pwd": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "avatar": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/create": {
+      "post": { 
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para a criação do cadastro no banco de dados",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type":"string",
+                    "example": "any"
+                  },
+                  "lastname": {
+                    "type":"string",
+                    "example": "any"
+                  },
+                  "email": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "pwd": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "avatar": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/token": {
+      "post": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para o envio de um token de confirmação para a redefinição de senha caso a tenha esquecido.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": { 
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para a realização do login",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type":"string",
+                    "example": "any"
+                  },
+                  "pwd": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/auth/google/callback": {
+      "post": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para a realização do login com o google.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/pwd": {
+      "post": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para a redefinição da senha.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pwd": {
+                    "type":"string",
+                    "example": "any"
+                  },
+                  "email": {
+                    "type":"string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para atuzalizar sua senha no perfil.",
+        "security": [
+          {
+            "BearerAuth": []  
+          }
+        ],
+        "parameters": [
+          {
+            "name": "authorization", 
+            "in": "header",
+            "description": "Token de autenticação do usuário",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer YOUR_TOKEN_HERE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pwdUser": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "newPwd": {
+                    "type":"string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/profile": {
+      "put": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para a atualização do seus dados de perfil",
+        "security": [
+          {
+            "BearerAuth": []  
+          }
+        ],
+        "parameters": [
+          {
+            "name": "authorization", 
+            "in": "header",
+            "description": "Token de autenticação do usuário",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer YOUR_TOKEN_HERE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "lastname": {
+                    "type": "string",
+                    "example": "any"
+                  },
+                  "avatar": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para pegar os dados do seu perfil.",
+        "security": [
+          {
+            "BearerAuth": []  
+          }
+        ],
+        "parameters": [
+          {
+            "name": "authorization", 
+            "in": "header",
+            "description": "Token de autenticação do usuário",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer YOUR_TOKEN_HERE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/levelup": {
+      "put": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para a atualização do seu level e quest atual",
+        "security": [
+          {
+            "BearerAuth": []  
+          }
+        ],
+        "parameters": [
+          {
+            "name": "authorization", 
+            "in": "header",
+            "description": "Token de autenticação do usuário",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer YOUR_TOKEN_HERE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/email": {
+      "put": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para a atualização do email no banco de dados",
+        "security": [
+          {
+            "BearerAuth": []  
+          }
+        ],
+        "parameters": [
+          {
+            "name": "authorization", 
+            "in": "header",
+            "description": "Token de autenticação do usuário",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer YOUR_TOKEN_HERE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/registerEmail": {
+      "put": {
+        "tags":["User"],
+        "description": "Rota utilizada pelo usuário para o envio de um token para a confirmação do email a ser atualizado",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/auth/google": {
+      "get": {
+        "tags":["User"],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/user": {
+      "delete": {
+        "tags":["User"],
+        "description": "Rota utilizado pelo usuário para a exclusão da conta",
+        "security": [
+          {
+            "BearerAuth": []  
+          }
+        ],
+        "parameters": [
+          {
+            "name": "authorization", 
+            "in": "header",
+            "description": "Token de autenticação do usuário",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "Bearer YOUR_TOKEN_HERE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "pwdHash": {
+                    "type": "string",
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "someBody": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Jhon Doe"
+          },
+          "age": {
+            "type": "number",
+            "example": 29
+          },
+          "about": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "required": [
+          "name",
+          "age"
+        ]
+      },
+      "someResponse": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Jhon Doe"
+          },
+          "age": {
+            "type": "number",
+            "example": 29
+          },
+          "diplomas": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "school": {
+                  "type": "string",
+                  "example": "XYZ University"
+                },
+                "year": {
+                  "type": "number",
+                  "example": 2020
+                },
+                "completed": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "internship": {
+                  "type": "object",
+                  "properties": {
+                    "hours": {
+                      "type": "number",
+                      "example": 290
+                    },
+                    "location": {
+                      "type": "string",
+                      "example": "XYZ Company"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "someEnum": {
+        "type": "string",
+        "enum": [ 
+          "red",
+          "yellow",
+          "green"
+        ]
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
